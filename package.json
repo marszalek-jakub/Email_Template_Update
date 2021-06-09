@@ -1,0 +1,29 @@
+{
+  "name": "cardgame",
+  "version": "1.0.0",
+  "description": "Card game created by Jakub Marszałek",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marszalek-jakub/CardGame.git"
+  },
+  "author": "Jakub Marszałek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marszalek-jakub/CardGame/issues"
+  },
+  "homepage": "https://github.com/marszalek-jakub/CardGame#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-terser": "^2.0.1",
+    "gulp-webp": "^4.0.1",
+    "terser": "^5.7.0"
+  }
+}
