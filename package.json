@@ -27,5 +27,8 @@
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
     "terser": "^5.7.0"
+  },
+  "dependencies": {
+    "gulp-clean": "^0.4.0"
   }
 }

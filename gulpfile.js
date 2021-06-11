@@ -8,6 +8,7 @@ const imagemin = require("gulp-imagemin");
 const imagewebp = require("gulp-webp");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
+const clean = require('gulp-clean');
 //functions
 
 function compilecss(){
@@ -41,6 +42,16 @@ function webpImage(){
         .pipe(dest("dist/images"))
 }
 
+function copyHtml(){
+    return src("src/*.html")
+        .pipe(dest("dist/"))
+}
+
+function cleanDist() {
+    return src("dist", {read: false})
+        .pipe(clean());
+};
+
 //watchtask
 
 function watchTask(){
@@ -48,11 +59,14 @@ function watchTask(){
     watch("src/js/*.js",jsmin);
     watch("src/images/*{jpg,png}",optimizeImage);
     watch("src/images/*.{jpg,png}",webpImage);
+    watch("src/*.html",copyHtml);
 }
 
 // default gulp
 
 exports.default = series(
+    cleanDist,
+    copyHtml,
     compilecss,
     jsmin,
     optimizeImage,
