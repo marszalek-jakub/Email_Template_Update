@@ -1,21 +1,21 @@
 {
-  "name": "gulpconfiguration",
+  "name": "emailtemplateapp",
   "version": "1.0.0",
-  "description": "My Gulp Configuration",
+  "description": "My Email template update app",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marszalek-jakub/Gulp_Configuration.git"
+    "url": "git+https://github.com/marszalek-jakub/Email_Template_Update.git"
   },
   "author": "Jakub Marszałek",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/marszalek-jakub/Gulp_Configuration/issues"
+    "url": "https://github.com/marszalek-jakub/Email_Template_Update/issues"
   },
-  "homepage": "https://github.com/marszalek-jakub/Gulp_Configuration/#readme",
+  "homepage": "https://github.com/marszalek-jakub/Email_Template_Update/#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
