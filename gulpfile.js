@@ -20,7 +20,7 @@ function compilecss(){
 }
 
 function jsmin(){
-    return src("src//js/*.js")
+    return src("src/js/*.js")
         .pipe(terser())
         .pipe(dest("dist/js"))
 }
@@ -55,7 +55,7 @@ function cleanDist() {
 //watchtask
 
 function watchTask(){
-    watch("src/scss/*.scss",compilecss);
+    watch("src/scss/*/*.scss",compilecss);
     watch("src/js/*.js",jsmin);
     watch("src/images/*{jpg,png}",optimizeImage);
     watch("src/images/*.{jpg,png}",webpImage);

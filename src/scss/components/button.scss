@@ -1,0 +1,11 @@
+.button {
+    width: 100px;
+    height: 40px;
+    background-color:	#DC143C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+    cursor: pointer;
+    }
+}
