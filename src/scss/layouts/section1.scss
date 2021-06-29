@@ -1,0 +1,17 @@
+.section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+    #textArea {
+        width: 600px;
+        height: 500px;
+
+    }
+
+    .variables {
+        display: flex;
+    }
+}

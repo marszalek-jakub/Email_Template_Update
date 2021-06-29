@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <textarea id="textArea" placeholder="Write/paste your email template code"></textarea>
+   <div class="section1">
+       <div class="variables">
+            <textarea id="variableName"></textarea>
+            <button id="addVariableButton" class="button">Add Variable</button>
+       </div>
+        <textarea id="textArea" placeholder="Write/paste your email template code"></textarea>
 
 
-<div id="checkVisualization" class="button check">Check</div>
-<div id="visualizationDiv" class="a">s</div>
+        <button id="checkVisualizationButton" class="button check">Check</button>
+        <div id="visualizationDiv">s</div>
+        <button id="downloadHtmlButton" class="button">Download</button>
 
+       
+   </div>
 <script type="module" src="./js/main.js"></script>
 </body>
 </html>
