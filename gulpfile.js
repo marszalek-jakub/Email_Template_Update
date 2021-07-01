@@ -21,7 +21,7 @@ function compilecss(){
 
 function jsmin(){
     return src("src/js/*.js")
-        .pipe(terser())
+        //.pipe(terser())
         .pipe(dest("dist/js"))
 }
 

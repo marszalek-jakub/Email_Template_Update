@@ -1,7 +1,7 @@
 
 
 //all js files
-import { script } from './script.js';
+import  script  from './script.js';
 
 //import
 
