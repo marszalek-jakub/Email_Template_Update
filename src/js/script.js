@@ -1,4 +1,4 @@
-export default () => {
+//export default () => {
 
 const textArea = document.querySelector("#textArea");
 const buttons = document.querySelectorAll(".button");
@@ -8,27 +8,13 @@ const visualizationDiv = document.querySelector("#visualizationDiv");
 const buttonsTable = [...buttons];
 
 
-let id = 0;
+
 let tabinput = [];
 
 buttonsTable.forEach(button => {
     button.addEventListener("click", function() {
         if (button.id === "checkVisualization-Button" ) {
-
-            if(id > 0) {
-                for(let i=0; i<tabinput.length; i++){
-                    const inputt = document.querySelector(`#input-${i}`);
-                    const textt = document.querySelector(`#textArea-${i}`);
-                    console.log(inputt);
-                    console.log(textt);
-
-                    if(textArea.value.includes(inputt.value)){
-                                textArea.value = textArea.value.replace(`<${inputt.value}>`,`${textt.value}`)
-                            }
-                }
-            }
-
-            visualizationDiv.innerHTML = textArea.value;
+            checkVisualization();
         }
         if (button.id === "addVariable-Button" ) {
             addVariables();
@@ -39,22 +25,29 @@ buttonsTable.forEach(button => {
     })
 });
 
+let amountId = 0;
 
 function addVariables(){
     const input = document.createElement("input");
             const textArea = document.createElement("textArea");
-            const div = document.createElement("div");
+            let div = document.createElement("div");
+            let divRemove = document.createElement("div");
 
-            let concat = "#id-"+id;
-            variablesDiv.appendChild(div).setAttribute("id","id-"+id);
+            let concat = "#id-"+amountId;
+            variablesDiv.appendChild(div).setAttribute("id","id-"+amountId);
             const divFlexbox = document.querySelector(concat);
             divFlexbox.classList.add("flex-box")
             tabinput.push(concat);
-            console.log(tabinput);
-            divFlexbox.appendChild(input).setAttribute("id","input-"+id);;
+            divFlexbox.appendChild(input).setAttribute("id","input-"+amountId);;
             divFlexbox.appendChild(input).value = variableName.value;
-            divFlexbox.appendChild(textArea).setAttribute("id","textArea-"+id);;
-            id++;
+            divFlexbox.appendChild(textArea).setAttribute("id","textArea-"+amountId);
+            divFlexbox.appendChild(divRemove).setAttribute("id","remove-"+amountId);
+            const removeCss = document.querySelector("#remove-"+amountId);
+            console.log(removeCss);
+            removeCss.classList.add("cssCircle");
+            removeCss.classList.add("minusSign");
+            removeCss.innerHTML = "&#8211;";
+            amountId++;
             
             variableName.value = "";
 }
@@ -69,4 +62,20 @@ function downloadHtml(filename, text) {
      element.click();
      document.body.removeChild(element);
    }
-}
+
+   function checkVisualization() {
+    if(amountId > 0) {
+        for(let i=0; i<tabinput.length; i++){
+            const inputt = document.querySelector(`#input-${i}`);
+            const textt = document.querySelector(`#textArea-${i}`);
+            while(textArea.value.includes(inputt.value)){
+                        textArea.value = textArea.value.replace(`$${inputt.value}$`,`${textt.value}`)
+                    }
+        }
+    }
+
+    visualizationDiv.innerHTML = textArea.value;
+   }
+
+let text = document.getSelection;
+//}

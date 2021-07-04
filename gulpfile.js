@@ -6,8 +6,6 @@ const minify = require("gulp-clean-css");
 const terser = require("gulp-terser");
 const imagemin = require("gulp-imagemin");
 const imagewebp = require("gulp-webp");
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify");
 const clean = require('gulp-clean');
 //functions
 
