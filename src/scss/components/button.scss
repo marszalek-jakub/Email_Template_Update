@@ -5,7 +5,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 10px 0;
+    transition: background 0.2s linear;
+    transition: color 0.2s linear;
     &:hover {
     cursor: pointer;
+
+    background-color:#c41437;
     }
+}
+
+.cssCircle {
+    border-radius: 50%;
+    
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+    
+    background: #779BCA;
+    border: 1px solid #003580;
+    color: #003580;
+    text-align: center;
+    transition: background 0.2s linear;
+    transition: color 0.2s linear;
+    font: 25px Arial, sans-serif
+  }
+  
+  .cssCircle:hover {
+    background: #3F69A0 ;
+    cursor: pointer;
+  }
+  
+  .minusSign {
+    line-height: 25px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2px;
+  }
+
+  .minusSign:hover{
+  color: white;
 }

@@ -1,4 +1,5 @@
 .section1 {
+    background-color: $grey;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,11 +10,47 @@
         justify-content: center;
     }
 
+    .flex-box {
+        align-items: center;
+    }
+
+    textarea {
+        height: 40px;
+        margin: 10px;
+        background-color: $grey;
+    }
+    .variableNameInput{
+        margin: 10px 10px 10px;
+    }
+
+    input {
+        background-color: $grey;
+        height: 40px;
+        border: solid .5px black;
+        text-align: center;
+    }
 
     #textArea {
         width: 600px;
         height: 500px;
 
+    }
+
+    .table {
+        display: flex;
+    }
+
+    .div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position:relative;
+    }
+
+    .download {
+        position: absolute;
+        bottom: 0;
     }
 
     .variables {
