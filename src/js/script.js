@@ -9,10 +9,12 @@ const buttonsTable = [...buttons];
 
 
 
+
+
 let tabinput = [];
 
 buttonsTable.forEach(button => {
-    button.addEventListener("click", function() {
+    button.addEventListener("click", () => {
         if (button.id === "checkVisualization-Button" ) {
             checkVisualization();
         }
@@ -28,8 +30,8 @@ buttonsTable.forEach(button => {
 let amountId = 0;
 
 function addVariables(){
-    const input = document.createElement("input");
-            const textArea = document.createElement("textArea");
+            const input = document.createElement("input");
+            const input2 = document.createElement("input");
             let div = document.createElement("div");
             let divRemove = document.createElement("div");
 
@@ -37,20 +39,31 @@ function addVariables(){
             variablesDiv.appendChild(div).setAttribute("id","id-"+amountId);
             const divFlexbox = document.querySelector(concat);
             divFlexbox.classList.add("flex-box")
-            tabinput.push(concat);
+            tabinput.push(divFlexbox);
             divFlexbox.appendChild(input).setAttribute("id","input-"+amountId);;
             divFlexbox.appendChild(input).value = variableName.value;
-            divFlexbox.appendChild(textArea).setAttribute("id","textArea-"+amountId);
+            divFlexbox.appendChild(input2).setAttribute("id","inputValue-"+amountId);
             divFlexbox.appendChild(divRemove).setAttribute("id","remove-"+amountId);
             const removeCss = document.querySelector("#remove-"+amountId);
-            console.log(removeCss);
             removeCss.classList.add("cssCircle");
             removeCss.classList.add("minusSign");
             removeCss.innerHTML = "&#8211;";
             amountId++;
-            
+
             variableName.value = "";
+    
+
+            //Removing parent function
+                divRemove.addEventListener("click", ()=> {
+                let num = divRemove.parentNode.id.replace(/^\D+/g, "");
+                tabinput.splice(num,1);
+                divRemove.parentNode.parentNode.removeChild(divRemove.parentNode);
+                })
+               
+            
+                        
 }
+
 
 function downloadHtml(filename, text) {
     var element = document.createElement('a');
@@ -67,15 +80,18 @@ function downloadHtml(filename, text) {
     if(amountId > 0) {
         for(let i=0; i<tabinput.length; i++){
             const inputt = document.querySelector(`#input-${i}`);
-            const textt = document.querySelector(`#textArea-${i}`);
-            while(textArea.value.includes(inputt.value)){
-                        textArea.value = textArea.value.replace(`$${inputt.value}$`,`${textt.value}`)
+            const textt = document.querySelector(`#inputValue-${i}`);
+
+            do{
+                        textArea.value = textArea.value.replace(`$${inputt.value}$`,`${textt.value}`);
                     }
+                    while(textArea.value.includes(inputt.value));
         }
     }
 
     visualizationDiv.innerHTML = textArea.value;
    }
 
-let text = document.getSelection;
+
+
 //}
