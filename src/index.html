@@ -9,24 +9,27 @@
 </head>
 <body>
    <div class="section1">
-       <div class="variables">
-           <div class="block">
-            <input id="variableName" class="variableNameInput"></input>
-            <button id="addVariable-Button" class="button">Add Variable</button>
-           </div>
-       </div>
-        <div class="table">
-            <div class="div">
-                <textarea id="textArea" placeholder="Write/paste your email template code" ></textarea>
-                <button id="checkVisualization-Button" class="button check">Check</button>
+       <div class="content">
+        <div class="variables">
+            <div class="block">
+             <input id="variableName" class="variableNameInput"></input>
+             <button id="addVariable-Button" class="button">Add Variable</button>
             </div>
-            <div class="div">
-                <div id="visualizationDiv"></div>
-                <button id="downloadHtml-Button" class="button download">Download</button>
+            <div class="block">
+             <p class="titleName">Variable Name:</p>
+             <p class="titleName">Variable Value:</p>
             </div>
         </div>
-
-       
+         <div class="table">
+             <div class="div">
+                    <textarea id="textArea" placeholder="Write/paste your email template code" ></textarea>
+                 <button id="checkVisualization-Button" class="button check">Check</button>
+ 
+                 <div id="visualizationDiv"></div>
+                 <button id="downloadHtml-Button" class="button download">Download</button>
+             </div>
+         </div> 
+       </div>
    </div>
 <script src="./js/main.js"></script>
 <script src="./js/script.js"></script>

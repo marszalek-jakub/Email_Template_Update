@@ -81,11 +81,12 @@ function downloadHtml(filename, text) {
         for(let i=0; i<tabinput.length; i++){
             const inputt = document.querySelector(`#input-${i}`);
             const textt = document.querySelector(`#inputValue-${i}`);
+                console.log(tabinput.id)
 
-            do{
+            while(textArea.value.includes(inputt.value))
                         textArea.value = textArea.value.replace(`$${inputt.value}$`,`${textt.value}`);
-                    }
-                    while(textArea.value.includes(inputt.value));
+                    
+                    
         }
     }
 
