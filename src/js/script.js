@@ -6,6 +6,8 @@ const variablesDiv = document.querySelector(".variables")
 const variableName = document.querySelector("#variableName");
 const visualizationDiv = document.querySelector("#visualizationDiv");
 const buttonsTable = [...buttons];
+const redWarning = "#ff0033";
+let errorText = document.querySelector(".errorText");
 
 
 
@@ -39,7 +41,7 @@ function addVariables(){
             variablesDiv.appendChild(div).setAttribute("id","id-"+amountId);
             const divFlexbox = document.querySelector(concat);
             divFlexbox.classList.add("flex-box")
-            tabinput.push(divFlexbox);
+            tabinput.push(amountId);
             divFlexbox.appendChild(input).setAttribute("id","input-"+amountId);;
             divFlexbox.appendChild(input).value = variableName.value;
             divFlexbox.appendChild(input2).setAttribute("id","inputValue-"+amountId);
@@ -50,13 +52,25 @@ function addVariables(){
             removeCss.innerHTML = "&#8211;";
             amountId++;
 
+
             variableName.value = "";
     
 
             //Removing parent function
                 divRemove.addEventListener("click", ()=> {
                 let num = divRemove.parentNode.id.replace(/^\D+/g, "");
-                tabinput.splice(num,1);
+                console.log(parseInt(num))
+                for( var i = 0; i < tabinput.length; i++){ 
+                    
+
+                    if ( tabinput[i] === tabinput[parseInt(num)]) { 
+                        console.log(tabinput)
+                        console.log(tabinput.indexOf(i));
+
+                        tabinput.splice(tabinput.indexOf(i), 1, null); 
+                    }
+                
+                }
                 divRemove.parentNode.parentNode.removeChild(divRemove.parentNode);
                 })
                
@@ -79,14 +93,25 @@ function downloadHtml(filename, text) {
    function checkVisualization() {
     if(amountId > 0) {
         for(let i=0; i<tabinput.length; i++){
-            const inputt = document.querySelector(`#input-${i}`);
-            const textt = document.querySelector(`#inputValue-${i}`);
-                console.log(tabinput.id)
+           if(tabinput[i] !== null){
+            const inputt = document.querySelector(`#input-${tabinput[i]}`);
+            const textt = document.querySelector(`#inputValue-${tabinput[i]}`);
+            if(inputt.value!=="" && textt.value !==""){
+               
+            }
 
-            while(textArea.value.includes(inputt.value))
-                        textArea.value = textArea.value.replace(`$${inputt.value}$`,`${textt.value}`);
-                    
-                    
+            else{
+                if(inputt.value=="") inputt.style.backgroundColor = redWarning;
+                
+                if (textt.value=="") textt.style.backgroundColor = redWarning;
+
+                errorText.textContent = "Niektóre zmienne lub wartości są puste"
+            }
+            while (textArea.value.includes(`$${inputt.value}$`))
+                textArea.value = textArea.value.replace(`$${inputt.value}$`,`${textt.value}`)
+   
+
+            }
         }
     }
 
