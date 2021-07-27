@@ -12,7 +12,7 @@ const App = {
    // start app
 
    run() {
-   //   script();
+      //script();
    }
 };
 

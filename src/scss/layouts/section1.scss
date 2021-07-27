@@ -60,5 +60,24 @@ body {
     .variables {
         display: flex;
         flex-direction: column;
+        align-items: center;
+    }
+
+    .fillValues {
+        width: auto;
+        height:auto;
+        background-color:	inherit;
+        display: inline;
+        justify-content: normal;
+        align-items: normal;
+        margin: 10px 0;
+        transition: none;
+        transition: none;
+        color: $blue;
+        &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        background-color:inherit;
+        }
     }
 }

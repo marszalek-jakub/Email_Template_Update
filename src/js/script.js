@@ -26,6 +26,9 @@ buttonsTable.forEach(button => {
         if (button.id === "downloadHtml-Button" ) {
            downloadHtml("index.html.html",textArea.value);
         }
+        if (button.id === "fillValues" ) {
+            fillValues();
+         }
     })
 });
 
@@ -56,7 +59,7 @@ function addVariables(){
             variableName.value = "";
     
 
-            //Removing parent function
+            //Removing parent div function
                 divRemove.addEventListener("click", ()=> {
                 let num = divRemove.parentNode.id.replace(/^\D+/g, "");
                 console.log(parseInt(num))
@@ -97,7 +100,10 @@ function downloadHtml(filename, text) {
             const inputt = document.querySelector(`#input-${tabinput[i]}`);
             const textt = document.querySelector(`#inputValue-${tabinput[i]}`);
             if(inputt.value!=="" && textt.value !==""){
-               
+                while (textArea.value.includes(`$${inputt.value}$`))
+                textArea.value = textArea.value.replace(`$${inputt.value}$`,`${textt.value}`)
+
+            }
             }
 
             else{
@@ -107,17 +113,22 @@ function downloadHtml(filename, text) {
 
                 errorText.textContent = "Niektóre zmienne lub wartości są puste"
             }
-            while (textArea.value.includes(`$${inputt.value}$`))
-                textArea.value = textArea.value.replace(`$${inputt.value}$`,`${textt.value}`)
-   
-
-            }
         }
     }
-
     visualizationDiv.innerHTML = textArea.value;
    }
 
+function fillValues(){
+    //fetch('http://xxxxxxxxx:xxxx/git-repos/Email_Template_Update/dist/sample.html')
+    fetch('./sample.html')
+        .then(response => response.text())
+        .then(data => {
+            textArea.value = data;
+        });
 
+
+
+
+}
 
 //}
