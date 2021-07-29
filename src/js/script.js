@@ -27,7 +27,8 @@ buttonsTable.forEach(button => {
            downloadHtml("index.html.html",textArea.value);
         }
         if (button.id === "fillValues" ) {
-            fillValues();
+            catchHtml()
+            .catch(error => {console.error(error)});
          }
     })
 });
@@ -118,17 +119,21 @@ function downloadHtml(filename, text) {
     visualizationDiv.innerHTML = textArea.value;
    }
 
-function fillValues(){
+async function catchHtml(){
     //fetch('http://xxxxxxxxx:xxxx/git-repos/Email_Template_Update/dist/sample.html')
-    fetch('./sample.html')
-        .then(response => response.text())
-        .then(data => {
-            textArea.value = data;
-        });
-
-
-
-
+    const response = await fetch("./sample.html");
+    if(response.status !== 200) {
+        textArea.value = textArea.value;
+        console.error("No file sample.html")
+    }
+    else {
+        const data = await response.text();
+        textArea.value = data;
+        console.log("Succesfully loaded sample code");
+    }
+   
 }
+
+
 
 //}
